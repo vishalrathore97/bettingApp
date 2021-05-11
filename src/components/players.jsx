@@ -85,9 +85,8 @@ class Players extends Component {
                   <td>
                     <input
                       type="checkbox"
-                      id={index}
-                      defaultChecked={player.selected}
-                      onClick={() => this.props.onPlayerSelect(player)}
+                      checked={player.selected}
+                      onChange={() => this.props.onPlayerSelect(player)}
                     />
                   </td>
                   <td>

@@ -8,10 +8,11 @@ class Start extends Component {
   };
   updateAll = () => {
     let newNum = _.random(1, 9);
-    console.log(newNum);
 
     const players = this.props.players.map((p) => {
       if (p.selected) {
+        
+        console.log(p.Name + " " + p.Price);
         if (newNum === parseInt(p.Bet)) {
           p.wins += 1;
           p.Price *= 2;
@@ -34,15 +35,11 @@ class Start extends Component {
     badgeClass += num === betNo ? "bg-success" : "bg-danger";
     return badgeClass;
   };
-  setPrice = (p, num) => {
-    let betNo = parseInt(p.Bet);
-    let newPrice = num === betNo ? p.Price * 2 : p.Price;
-    return newPrice;
-  };
   componentDidMount() {
     let newNum = _.random(1, 9);
     const players = this.props.players.map((p) => {
       if (p.selected) {
+        console.log(p.Name + " " + p.Price);
         if (newNum === parseInt(p.Bet)) {
           p.wins += 1;
           p.Price *= 2;
@@ -95,7 +92,7 @@ class Start extends Component {
                       <i className="fa fa-plus-circle" /> {p.Bet}
                     </span>
                     <p>
-                      <i className="fa fa-inr" /> {this.setPrice(p, num)}
+                      <i className="fa fa-inr" /> {p.Price}
                     </p>
                   </div>
                   <div className={this.setBadgeClass(num, p.Bet)}>
